@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://sdp4ryfh5fen"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ssjw8"]
+
+[node name="Word" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="GroundMesh" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_ssjw8")
+
+[node name="GroundCollision" type="CollisionShape3D" parent="Ground"]
