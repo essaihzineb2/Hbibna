@@ -1,0 +1,100 @@
+[gd_scene load_steps=16 format=3 uid="uid://5y1x8tw1u8ox"]
+
+[ext_resource type="PackedScene" uid="uid://ce8mw5m8aqi4n" path="res://scenes/world/envronement.tscn" id="1_i2aat"]
+[ext_resource type="PackedScene" uid="uid://c4ac3dfxyrfyc" path="res://scenes/player/player.tscn" id="2_2djvx"]
+[ext_resource type="PackedScene" uid="uid://4wsw5aqrjshq" path="res://scenes/enemies/enemy.tscn" id="3_2djvx"]
+[ext_resource type="PackedScene" uid="uid://cej4i54nug6di" path="res://scenes/world/buildings/buil3.glb" id="4_uvc87"]
+[ext_resource type="PackedScene" uid="uid://baoacnjw15ogi" path="res://scenes/world/buildings/buil4.glb" id="5_qdh5e"]
+[ext_resource type="PackedScene" uid="uid://cipv16hohnh18" path="res://scenes/world/buildings/buil5.glb" id="6_50wog"]
+[ext_resource type="PackedScene" uid="uid://iw7dbc6qsywt" path="res://scenes/world/buildings/buil6.glb" id="7_1ey3t"]
+[ext_resource type="PackedScene" uid="uid://7e2clg0r6qia" path="res://scenes/world/props/lig2.glb" id="8_t0hvh"]
+[ext_resource type="PackedScene" uid="uid://b31dwuhtoq412" path="res://scenes/world/props/lig3.glb" id="9_kfebt"]
+[ext_resource type="PackedScene" uid="uid://3cmue3oapl1c" path="res://scenes/world/props/lig.glb" id="10_r72dd"]
+[ext_resource type="PackedScene" uid="uid://dmkcncppagtrn" path="res://scenes/world/buildings/bil9.glb" id="11_ijn0p"]
+[ext_resource type="PackedScene" uid="uid://dtai3wu0j6lll" path="res://scenes/world/props/garb.glb" id="12_jmes4"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_1ey3t"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_t0hvh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kfebt"]
+albedo_color = Color(0.10102854, 0.03545923, 0.1810695, 1)
+albedo_texture = SubResource("ImageTexture_t0hvh")
+
+[node name="level-01" type="Node3D"]
+
+[node name="background2" type="MeshInstance3D" parent="."]
+transform = Transform3D(650.5305, 0, 0, 0, 137.36302, 0, 0, 0, 1, 16.486107, 1.3031445, -33.256485)
+mesh = SubResource("QuadMesh_1ey3t")
+skeleton = NodePath("../Node3D/background")
+surface_material_override/0 = SubResource("StandardMaterial3D_kfebt")
+
+[node name="Environment" parent="." instance=ExtResource("1_i2aat")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.0234375, 0.05807495, -0.031386375)
+
+[node name="player" parent="." instance=ExtResource("2_2djvx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.5879772, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.92055255, 0.39061865, 0, -0.30467156, 0.71800506, 0.6258145, 0.24445486, -0.5760952, 0.77997184, -19.719477, 9.424776, 0)
+light_color = Color(0.86960745, 0.8650748, 0.97813815, 1)
+shadow_enabled = true
+
+[node name="Enemy" parent="." instance=ExtResource("3_2djvx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.646038, 1.6182418, 0.87225914)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="buil3" parent="Node3D" instance=ExtResource("4_uvc87")]
+transform = Transform3D(-5.2453668e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.2453668e-08, 11.435536, 0.05000019, -8.618738)
+
+[node name="buil4" parent="Node3D" instance=ExtResource("5_qdh5e")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.5942945, 0.04000015, -3.368308)
+
+[node name="buil5" parent="Node3D" instance=ExtResource("6_50wog")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.718113, 0.04000015, -2.5511155)
+
+[node name="buil6" parent="Node3D" instance=ExtResource("7_1ey3t")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 27.013525, 0.09807511, -5.8197594)
+
+[node name="background" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(9.257091, 0, 0, 0, 8.67267, 0, 0, 0, 1, -10.199354, 2.6152155, -16.628242)
+mesh = SubResource("QuadMesh_1ey3t")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kfebt")
+
+[node name="lig2" parent="Node3D" instance=ExtResource("8_t0hvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.008768, 0.09807435, 4.381393)
+
+[node name="lig3" parent="Node3D" instance=ExtResource("9_kfebt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.980405, 0.09807435, -2.7021735)
+
+[node name="lig" parent="Node3D" instance=ExtResource("10_r72dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.21161, 0.09807435, -7.807232)
+
+[node name="lig4" parent="Node3D" instance=ExtResource("8_t0hvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.326557, 0.09807435, 1.2381525)
+
+[node name="bil9" parent="Node3D" instance=ExtResource("11_ijn0p")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 38.799316, 0.09807435, -24.433727)
+
+[node name="garb" parent="Node3D" instance=ExtResource("12_jmes4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.858779, 0.1057612, -3.02099)
+
+[node name="garb2" parent="Node3D" instance=ExtResource("12_jmes4")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 17.711332, 0.1057612, 0.6350603)
+
+[node name="garb3" parent="Node3D" instance=ExtResource("12_jmes4")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.9078937, 4.2406, -5.2228355)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_2djvx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -18.85944, 0.709, 0)
+attack_range = 1.4
+
+[node name="Enemy3" parent="." instance=ExtResource("3_2djvx")]
+transform = Transform3D(1.9999244, -0.017383259, 0, 0.017383259, 1.9999244, 0, 0, 0, 2, -39.889217, 1.013, 0)
+attack_range = 1.4
+
+[node name="Enemy4" parent="." instance=ExtResource("3_2djvx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 35.936943, 0.988, 0)
+attack_range = 1.4
