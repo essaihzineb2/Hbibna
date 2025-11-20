@@ -29,6 +29,7 @@ var attacked_enemies: Array = []  # Track enemies already hit this attack
 # --- Nodes ---
 @onready var sprite: AnimatedSprite3D = $Sprite3D
 @onready var attack_area: Area3D = $AttackArea
+@onready var attack_sound: AudioStreamPlayer = $AttackSound
 
 
 func _ready() -> void:
@@ -40,6 +41,15 @@ func _ready() -> void:
 	if attack_area:
 		attack_area.monitoring = false
 		attack_area.body_entered.connect(_on_attack_area_body_entered)
+
+	# Load and assign attack sound
+	if attack_sound:
+		var sound_path = "res://scenes/sounds/knock.wav"
+		if ResourceLoader.exists(sound_path):
+			attack_sound.stream = load(sound_path)
+			print("Attack sound loaded: ", sound_path)
+		else:
+			print("Attack sound file not found at: ", sound_path)
 
 
 func _physics_process(delta: float) -> void:
@@ -98,6 +108,12 @@ func _attack() -> void:
 	# Jouer l'animation Attack
 	if sprite.sprite_frames.has_animation("Attack"):
 		sprite.play("Attack")
+		
+	# Play attack sound
+	if attack_sound and attack_sound.stream:
+		attack_sound.play()
+	elif attack_sound:
+		print("Attack sound node found but no stream assigned.")
 
 	# Check for enemies already in range
 	_check_and_damage_enemies()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://5y1x8tw1u8ox"]
+[gd_scene load_steps=17 format=3 uid="uid://5y1x8tw1u8ox"]
 
 [ext_resource type="PackedScene" uid="uid://ce8mw5m8aqi4n" path="res://scenes/world/envronement.tscn" id="1_i2aat"]
 [ext_resource type="PackedScene" uid="uid://c4ac3dfxyrfyc" path="res://scenes/player/player.tscn" id="2_2djvx"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://3cmue3oapl1c" path="res://scenes/world/props/lig.glb" id="10_r72dd"]
 [ext_resource type="PackedScene" uid="uid://dmkcncppagtrn" path="res://scenes/world/buildings/bil9.glb" id="11_ijn0p"]
 [ext_resource type="PackedScene" uid="uid://dtai3wu0j6lll" path="res://scenes/world/props/garb.glb" id="12_jmes4"]
+[ext_resource type="PackedScene" uid="uid://cko8553ultneo" path="res://scenes/world/buildings/buil2.glb" id="13_tyxjt"]
+[ext_resource type="Script" path="res://scenes/levels/level_01.gd" id="14_script"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_1ey3t"]
 
@@ -22,6 +24,7 @@ albedo_color = Color(0.10102854, 0.03545923, 0.1810695, 1)
 albedo_texture = SubResource("ImageTexture_t0hvh")
 
 [node name="level-01" type="Node3D"]
+script = ExtResource("14_script")
 
 [node name="background2" type="MeshInstance3D" parent="."]
 transform = Transform3D(650.5305, 0, 0, 0, 137.36302, 0, 0, 0, 1, 16.486107, 1.3031445, -33.256485)
@@ -98,3 +101,9 @@ attack_range = 1.4
 [node name="Enemy4" parent="." instance=ExtResource("3_2djvx")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 35.936943, 0.988, 0)
 attack_range = 1.4
+
+[node name="buil2" parent="." instance=ExtResource("13_tyxjt")]
+transform = Transform3D(0.5296232, 0, -0.848233, 0, 1, 0, 0.848233, 0, 0.5296232, -7.099461, 0.1603715, 5.7595663)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+autoplay = true
