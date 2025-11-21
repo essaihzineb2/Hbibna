@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://5y1x8tw1u8ox"]
+[gd_scene load_steps=18 format=3 uid="uid://5y1x8tw1u8ox"]
 
 [ext_resource type="PackedScene" uid="uid://ce8mw5m8aqi4n" path="res://scenes/world/envronement.tscn" id="1_i2aat"]
 [ext_resource type="PackedScene" uid="uid://c4ac3dfxyrfyc" path="res://scenes/player/player.tscn" id="2_2djvx"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dmkcncppagtrn" path="res://scenes/world/buildings/bil9.glb" id="11_ijn0p"]
 [ext_resource type="PackedScene" uid="uid://dtai3wu0j6lll" path="res://scenes/world/props/garb.glb" id="12_jmes4"]
 [ext_resource type="PackedScene" uid="uid://cko8553ultneo" path="res://scenes/world/buildings/buil2.glb" id="13_tyxjt"]
-[ext_resource type="Script" path="res://scenes/levels/level_01.gd" id="14_script"]
+[ext_resource type="Script" uid="uid://bv1mnuj1s3g1m" path="res://scenes/levels/level_01.gd" id="14_script"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_1ey3t"]
 
@@ -33,7 +33,7 @@ skeleton = NodePath("../Node3D/background")
 surface_material_override/0 = SubResource("StandardMaterial3D_kfebt")
 
 [node name="Environment" parent="." instance=ExtResource("1_i2aat")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.0234375, 0.05807495, -0.031386375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0234375, 0.05807495, -0.031386375)
 
 [node name="player" parent="." instance=ExtResource("2_2djvx")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.5879772, 0)
@@ -79,7 +79,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.21161, 0.09807435, -7.8072
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.326557, 0.09807435, 1.2381525)
 
 [node name="bil9" parent="Node3D" instance=ExtResource("11_ijn0p")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 38.799316, 0.09807435, -24.433727)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 50, 0.098, -24.434)
 
 [node name="garb" parent="Node3D" instance=ExtResource("12_jmes4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.858779, 0.1057612, -3.02099)
@@ -89,6 +89,9 @@ transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 17.7
 
 [node name="garb3" parent="Node3D" instance=ExtResource("12_jmes4")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.9078937, 4.2406, -5.2228355)
+
+[node name="buil2" parent="Node3D" instance=ExtResource("13_tyxjt")]
+transform = Transform3D(-1.3113416e-07, 0, -3, 0, 3, 0, 3, 0, -1.3113416e-07, -43.149, 0.04, -8.601)
 
 [node name="Enemy2" parent="." instance=ExtResource("3_2djvx")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -18.85944, 0.709, 0)
@@ -103,7 +106,34 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 35.936943, 0.988, 0)
 attack_range = 1.4
 
 [node name="buil2" parent="." instance=ExtResource("13_tyxjt")]
-transform = Transform3D(0.5296232, 0, -0.848233, 0, 1, 0, 0.848233, 0, 0.5296232, -7.099461, 0.1603715, 5.7595663)
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -55, 0.08, -8.6)
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 autoplay = true
+
+[node name="bil9" parent="." instance=ExtResource("11_ijn0p")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -41.479, 0.098, -24.438)
+
+[node name="buil3" parent="." instance=ExtResource("4_uvc87")]
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -34.498, 0.05, -8.92)
+
+[node name="bil10" parent="." instance=ExtResource("11_ijn0p")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -90, 0.098, -27.68)
+
+[node name="buil6" parent="." instance=ExtResource("7_1ey3t")]
+transform = Transform3D(-1.3113416e-07, 0, -3, 0, 3, 0, 3, 0, -1.3113416e-07, -67.85, 0.04, -8.61)
+
+[node name="bil11" parent="." instance=ExtResource("11_ijn0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.49936, -0.43830067, 20.672882)
+
+[node name="buil4" parent="." instance=ExtResource("13_tyxjt")]
+transform = Transform3D(-1.3113416e-07, 0, -3, 0, 3, 0, 3, 0, -1.3113416e-07, 38, 0.108, -8.619)
+
+[node name="buil5" parent="." instance=ExtResource("4_uvc87")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 48, 0.108, -8.619)
+
+[node name="buil7" parent="." instance=ExtResource("5_qdh5e")]
+transform = Transform3D(-1.3113416e-07, 0, -3, 0, 3, 0, 3, 0, -1.3113416e-07, 63, 0.108, -8.619)
+
+[node name="buil8" parent="." instance=ExtResource("6_50wog")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 85, 0.108, -8.619)
