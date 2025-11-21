@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dtgh3kpf1fq1" path="res://scenes/real_animation/jump.png" id="5_0owmy"]
 [ext_resource type="Texture2D" uid="uid://bxnumx6ppfugj" path="res://scenes/real_animation/Run.png" id="6_0owmy"]
 [ext_resource type="Texture2D" uid="uid://c6uibl2t8jj8j" path="res://scenes/real_animation/walk.png" id="7_0owmy"]
+[ext_resource type="PackedScene" uid="uid://hud1234568aa" path="res://scenes/ui/hud.tscn" id="8_hudui"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fm80t"]
 atlas = ExtResource("3_0owmy")
@@ -337,3 +338,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.033919454, -0.28793046, 0)
 shape = SubResource("BoxShape3D_qek5x")
 
 [node name="AttackSound" type="AudioStreamPlayer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("8_hudui")]

@@ -30,6 +30,7 @@ var attacked_enemies: Array = []  # Track enemies already hit this attack
 @onready var sprite: AnimatedSprite3D = $Sprite3D
 @onready var attack_area: Area3D = $AttackArea
 @onready var attack_sound: AudioStreamPlayer = $AttackSound
+@onready var hud = $CanvasLayer/HUD
 
 
 func _ready() -> void:
@@ -192,6 +193,9 @@ func _update_energy(delta: float) -> void:
 
 	if energy < 0.0:
 		energy = 0.0
+
+	if hud:
+		hud.update_force(energy, max_energy)
 
 
 func take_damage(amount: float) -> void:
