@@ -22,6 +22,8 @@ var is_attacking: bool = false
 var is_hurt: bool = false
 var is_dead: bool = false
 
+signal enemy_died
+
 var health: float
 var last_direction_change: float = 0.0
 var direction_change_cooldown: float = 0.5
@@ -200,6 +202,8 @@ func _die():
 	velocity = Vector3.ZERO
 	chasing = false
 	player = null
+	
+	emit_signal("enemy_died")
 	
 	sprite.play("Death")
 	set_physics_process(false)  # Stop all physics processing

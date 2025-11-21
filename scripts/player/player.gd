@@ -38,6 +38,9 @@ func _ready() -> void:
 	health = max_health
 	energy = max_energy
 	
+	if hud:
+		hud.update_health(health, max_health)
+	
 	# Connect area signals for better attack detection
 	if attack_area:
 		attack_area.monitoring = false
@@ -199,20 +202,27 @@ func _update_energy(delta: float) -> void:
 
 
 func take_damage(amount: float) -> void:
+	print(">> PLAYER: take_damage called with: ", amount)
+	print(">> PLAYER: health before: ", health)
+
 	if health <= 0.0:
 		return
 
-	print("Player taking damage: ", amount)
 	health -= amount
-	print("Player health now: ", health)
+	
+	if hud:
+		hud.update_health(health, max_health)
+
+	print(">> PLAYER: health after: ", health)
 	
 	if health <= 0.0:
 		health = 0.0
+		print(">> PLAYER: calling _die()")
 		_die()
 	else:
-		# Si tu as une anim "Hurt"
 		if sprite.sprite_frames.has_animation("Hurt"):
 			sprite.play("Hurt")
+
 
 
 func _die() -> void:
@@ -224,7 +234,9 @@ func _die() -> void:
 	if sprite.sprite_frames.has_animation("Death"):
 		sprite.play("Death")
 		await sprite.animation_finished
-	queue_free()
+	
+	if hud:
+		hud.show_game_over()
 
 
 # ------------------ UTILITY ------------------
