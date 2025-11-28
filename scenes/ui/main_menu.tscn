@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://oa1t7v4dhhuu"]
+[gd_scene load_steps=5 format=3 uid="uid://oa1t7v4dhhuu"]
 
 [ext_resource type="Script" uid="uid://nop8ur8x67g2" path="res://scripts/ui/main_menu.gd" id="1_script"]
+
+[sub_resource type="Gradient" id="Gradient_bg"]
+colors = PackedColorArray(0, 0.0666667, 0.2, 1, 0, 0.266667, 0.533333, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bg"]
+gradient = SubResource("Gradient_bg")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -10,6 +18,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_bg")
 
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 1
@@ -25,3 +42,22 @@ offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Lancer une partie"
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -150.0
+offset_right = 300.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(300, 50)
+theme_override_font_sizes/font_size = 72
+text = "The Last Charge"
+horizontal_alignment = 1
+vertical_alignment = 1
